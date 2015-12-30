@@ -1,0 +1,41 @@
+<%= form_for(@contact, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-group">
+    <label class="col-sm-2 control-label">Name:</label>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: "form-control", placeholder: 'Name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Surname:</label>
+    <div class="col-sm-6">
+      <%= f.text_field :surname, class: "form-control", placeholder: 'Surname' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Phone:</label>
+    <div class="col-sm-6">
+      <%= f.text_field number_to_phone(:phone, :groupings => [4, 3, 3], :delimiter => "-") ,class: "form-control", placeholder: '(___) ___ ____' %>
+      <!-- <input type="email"  id="inputEmail3" placeholder="Email"> -->
+    </div>
+  </div>
+ <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'btn btn-success btn-sm' %>
+    </div>
+  </div>
+
+<% end %>
+
+

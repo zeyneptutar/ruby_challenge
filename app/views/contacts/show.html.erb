@@ -1,0 +1,22 @@
+<div class="col-md-12">
+	<p id="notice"><%= notice %></p>
+	<h2 class="page-header">Contact Informations</h2>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @contact.name %>
+	</p>
+
+	<p>
+	  <strong>Surname:</strong>
+	  <%= @contact.surname %>
+	</p>
+
+	<p>
+	  <strong>Phone:</strong>
+	  <%=number_to_phone(@contact.phone, area_code: true) %>
+	</p>
+
+
+	<%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-primary btn-sm' %> |
+	<%= link_to 'Back', contacts_path, class: 'btn btn-primary btn-sm' %>
+</div>

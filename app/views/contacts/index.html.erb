@@ -1,0 +1,39 @@
+<div class="col-md-12">
+  <p id="notice"><%= notice %></p>
+  <h2 class="page-header">Listing Contacts</h2>
+
+  <p>You have <b><i><%= @contacts.length %></i></b> contacts.</p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Phone</th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.id %></td>
+          <td><%= contact.name %></td>
+          <td><%= contact.surname %></td>
+          <td><%= number_to_phone(contact.phone, area_code: true)  %></td>
+          <td><%= link_to 'Show', contact, class: 'btn btn-primary btn-sm'%></td>
+          <td><%= link_to 'Edit', edit_contact_path(contact), class: 'btn btn-primary btn-sm' %></td>
+          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= link_to 'New Contact', new_contact_path, class: 'btn btn-success btn-sm' %>
+  
+</div>
+
