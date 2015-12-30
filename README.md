@@ -11,6 +11,7 @@ https://challenge-ruby.herokuapp.com/api/v1/contacts/:id/edit
 https://challenge-ruby.herokuapp.com/api/v1/contacts/:id/delete
 ```
 ##### Installation steps:
+---
 Simply clone app to your locale,
 ```
 git clone git@github.com:zeyneptutar/ruby_challenge.git
