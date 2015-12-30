@@ -1,5 +1,5 @@
 # ruby_challenge
-A Sample UI Application For Manage Contacts with Ruby On Rails 
+A Sample UI Application For Manage Contacts with Ruby On Rails and 
 Used [Rabl](https://github.com/nesquena/rabl) for creating Api Service
 
 Access from,
