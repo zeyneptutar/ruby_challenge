@@ -20,7 +20,6 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
         redirect_to @contact, notice: 'Contact was successfully created.' 
-        # render :show, status: :created, location: @contact 
     else
         render :new 
     end
