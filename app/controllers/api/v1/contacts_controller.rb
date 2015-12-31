@@ -17,7 +17,6 @@ class Api::V1::ContactsController < ApplicationController
   end
 
   def create
-  	puts "KSKDWDE"
     @contact = Contact.new(contact_params)
     if @contact.save
         render "show.json.rabl"

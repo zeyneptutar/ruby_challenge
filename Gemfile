@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'rabl'
 gem 'twitter-bootstrap-rails'
+gem 'kaminari'
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password

@@ -1,9 +1,9 @@
 <div class="col-md-12">
   <p id="notice"><%= notice %></p>
+
   <h2 class="page-header">Listing Contacts</h2>
 
-  <p>You have <b><i><%= @contacts.length %></i></b> contacts.</p>
-
+  <p>You have <b><i><%= @contacts.total_count %></i></b> contacts.</p>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -31,9 +31,24 @@
       <% end %>
     </tbody>
   </table>
+  
+  <%= paginate @contacts %>
 
-  <br>
-  <%= link_to 'New Contact', new_contact_path, class: 'btn btn-success btn-sm' %>
+  <br />
+  <%= link_to 'New Contact', new_contact_path, class: 'btn btn-success btn-sm', style: 'margin:4px !important;' %>
+  <br />
+  <%= link_to "Import Contacts", "#upload_file_modal", :class => "btn btn-success btn-sm", "data-toggle" => "modal" , style: 'margin:4px !important;'%>
   
 </div>
 
+<div class="modal fade" id="upload_file_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Kapat</span></button>
+        <h4 class="modal-title" id="myModalLabel"> Import Contacts From XML File </h4>
+      </div>
+        <%= render 'upload_modal' %>
+    </div>
+  </div>
+</div>
