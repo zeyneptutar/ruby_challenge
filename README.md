@@ -1,5 +1,5 @@
 # ruby_challenge
-A Sample UI Application For Manage Contacts with Ruby On Rails and 
+A Sample UI Application For Manage Contacts with Ruby On Rails.
 
 ##### Installation steps:
 ---
