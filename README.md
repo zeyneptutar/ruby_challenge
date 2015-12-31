@@ -9,6 +9,10 @@ Simply clone app to your locale,
 ```
 git clone git@github.com:zeyneptutar/ruby_challenge.git
 ```
+Next run bundler,
+```
+bundle install
+```
 And migrate your database,
 
 ```
