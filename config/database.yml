@@ -82,4 +82,4 @@ production:
   <<: *default
   database: ruby_challenge_production
   username: ruby_challenge
-  password: <%= ENV['RUBY_CHALLENGE_DATABASE_PASSWORD'] %>
+  password: "ruby_challengePA55"
