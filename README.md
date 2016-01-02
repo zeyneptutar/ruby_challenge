@@ -1,4 +1,4 @@
-# ruby_challenge
+# VNGRS Ruby Challenge
 A Sample UI Application For Manage Contacts with Ruby On Rails.
 
 For more information please visit [Home](https://github.com/zeyneptutar/ruby_challenge/wiki) .
