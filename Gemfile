@@ -27,6 +27,7 @@ gem 'puma'
 gem 'rabl'
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
+gem 'devise'
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password

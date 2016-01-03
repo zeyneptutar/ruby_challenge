@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
 	paginates_per 10
+  belongs_to :user
 	validates :phone,:presence => {:message => 'Just positive numbers without spaces are allowed'},
                       :numericality => true,
                       :length => { :minimum => 10, :maximum => 15 }

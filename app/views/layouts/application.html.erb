@@ -7,21 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class = "row">
-		<div class="container-fluid">
-			<nav class="navbar navbar-default ">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="/contacts" >
-			       Ruby Challenge - Sample UI Application
-			      </a>
-			    </div>
-			</nav>
+	<% if user_signed_in? %>
+		<div class = "row">
+			<div class="container-fluid">
+				<nav class="navbar navbar-default ">
+				    <div class="navbar-header">
+				      <a class="navbar-brand" href="/contacts" >
+				       Ruby Challenge - Sample UI Application
+				      </a>
+					  <%#= link_to 'Log out',destroy_user_session_path, method: :delete,  %>
+				    </div>
+					<%= link_to 'Log out',destroy_user_session_path, method: :delete, style: "float: right; padding: 15px; font-size: 18px" %>
+				</nav>
+			</div>
 		</div>
-	</div>
-	
-	<div class="col-md-12">
-		<%= yield %>
-	</div>
-
+		
+		<div class="col-md-12">
+			<%= yield %>
+		</div>
+	<% else %>
+		<div class="container" style="padding-top: 100px !important;">
+			<%= yield  %>
+		</div>
+	<% end %>
 </body>
 </html>
