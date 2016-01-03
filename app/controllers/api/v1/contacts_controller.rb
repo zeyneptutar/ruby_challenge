@@ -19,7 +19,7 @@ class Api::V1::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-        render "show.json.rabl"
+        render "show.rabl"
     else
         render :json => [{:error => "Error occured record not created"}], :status => 500
         
@@ -28,7 +28,7 @@ class Api::V1::ContactsController < ApplicationController
 
   def update
   	if @contact.update(contact_params)
-          render "show.json.rabl"
+          render "show.rabl"
   	else
           render :json => [{:error => "Error occured record not updated"}], :status => 500
 	 end
@@ -36,7 +36,7 @@ class Api::V1::ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    render 'index.json.rabl'
+    render 'index.rabl'
   end
 
   private
