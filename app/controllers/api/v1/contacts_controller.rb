@@ -3,7 +3,8 @@ class Api::V1::ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all
+    # @contacts = Contact.all
+    @contacts = current_user.contacts.order("created_at desc")
   end
 
   def show
@@ -18,6 +19,7 @@ class Api::V1::ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
     if @contact.save
         render "show.rabl"
     else
@@ -27,6 +29,7 @@ class Api::V1::ContactsController < ApplicationController
   end
 
   def update
+    @contact.user_id = current_user.id
   	if @contact.update(contact_params)
           render "show.rabl"
   	else
@@ -45,6 +48,6 @@ class Api::V1::ContactsController < ApplicationController
     end
 
     def contact_params
-      params.permit(:name, :surname, :phone)
+      params.permit(:name, :surname, :phone, :user_id)
     end
 end

@@ -4,7 +4,8 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all.order("created_at desc").page(params[:page])
+    @contacts = current_user.contacts.order("created_at desc").page(params[:page])
+    # @contacts = Contact.all.order("created_at desc").page(params[:page])
   end
 
   def show
@@ -19,6 +20,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
     if @contact.save
         redirect_to @contact, notice: 'Contact was successfully created.' 
     else
@@ -27,11 +29,12 @@ class ContactsController < ApplicationController
   end
 
   def update
-	if @contact.update(contact_params)
-	    redirect_to @contact, notice: 'Contact was successfully updated.' 
-	else
-	    render :edit
-	end
+    @contact.user_id = current_user.id
+  	if @contact.update(contact_params)
+  	    redirect_to @contact, notice: 'Contact was successfully updated.' 
+  	else
+  	    render :edit
+  	end
   end
 
   def destroy
@@ -52,7 +55,8 @@ class ContactsController < ApplicationController
       name = node.children.css("name").text
       surname = node.children.css("lastName").text
       phone = node.children.css("phone").text.gsub(/\s+/, "")
-      Contact.create_contact(name,surname,phone)
+      user_id = current_user.id
+      Contact.create_contact(name,surname,phone,user_id)
     end
     redirect_to contacts_path, notice: 'Contacts were successfully imported.'
   end
@@ -63,6 +67,6 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :surname, :phone)
+      params.require(:contact).permit(:name, :surname, :phone, :user_id)
     end
 end
