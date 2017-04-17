@@ -1,0 +1,19 @@
+branch-defaults:
+  aws-deploy:
+    environment: ruby-challenge-dev
+environment-defaults:
+  ruby-challenge-dev:
+    branch: null
+    repository: null
+global:
+  application_name: ruby_challenge
+  default_ec2_keyname: null
+  default_platform: arn:aws:elasticbeanstalk:eu-west-1::platform/Puma with Ruby 2.2
+    running on 64bit Amazon Linux/2.3.3
+  default_region: eu-west-1
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: git
+  workspace_type: Application
